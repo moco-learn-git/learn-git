@@ -1,0 +1,10 @@
+[Unit]
+Description=Launch the Flask server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/learn-git/.venv/bin/gunicorn --certfile /etc/letsencrypt/live/learn-git.cs.moravian.edu/fullchain.pem --keyfile /etc/letsencrypt/live/learn-git.cs.moravian.edu/privkey.pem -b 0.0.0.0:443 --workers=3 --chdir /learn-git app:app
+
+[Install]
+WantedBy=multi-user.target
