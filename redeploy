@@ -1,0 +1,4 @@
+systemctl stop learn-git
+git pull origin main
+systemctl start learn-git
+
