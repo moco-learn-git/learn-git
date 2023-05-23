@@ -40,7 +40,7 @@ def create_repo():
     index = r.index
     index.add(['README.md'])
     index.commit('Change to an enumerated list', author=author, committer=author)
-    r.remote('origin').push('main')
+    r.remote('origin').push()
 
     return {
         'statusCode': 200,
