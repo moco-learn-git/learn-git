@@ -1,7 +1,6 @@
 flask
 gunicorn
 Flask-OAuthlib
-aouthlib
 python-dotenv
 wonderwords
 PyGithub
