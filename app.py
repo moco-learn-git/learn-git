@@ -59,19 +59,19 @@ def logout():
 @app.route('/home')
 def home():
     user = session.get('user')
-    return render_template('home.html')
+    return render_template('home.html', user=user)
 
 
 @app.route('/step1')
 def step1():
     user = session.get('user')
-    return render_template('step1.html')
+    return render_template('step1.html', user=user)
 
 
 @app.route('/step2')
 def step2():
     user = session.get('user')
-    return render_template('step2.html')
+    return render_template('step2.html', user=user)
 
 
 if __name__ == '__main__':
