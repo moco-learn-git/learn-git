@@ -9,6 +9,13 @@
         <h1>
             Github Workflow Conflict Resolution
         </h1>
+        {% if user %}
+        <pre>
+            {{ user|tojson }}
+            <a href="/logout">logout</a>
+        </pre>
+        {% endif %}
+
         <h2>
             Setup
         </h2>
