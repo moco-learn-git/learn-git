@@ -12,16 +12,15 @@
         {% if user %}
         <pre>
             {{ user|tojson }}
-            <a href="home">Github Conflict Tutorial</a>
+            <a href="/logout">logout</a>
         </pre>
-        <a href="/logout">logout</a>
         {% endif %}
 
         <p>
-            The goal of this scenario is to demonstrate how to resolve a conflict in the Github workflow. 
-            
+            The goal of this scenario is to demonstrate how to resolve a conflict in the Github workflow.
+
             You will make a contribution to a repo while a simulated person makes a different change. These changes will conflict, and you will have to resolve the conflict.
-            
+
             This scenario assumes that you have a Github account. If you do not, go to github.com to sign up.
         </p>
         <button onclick="switchHTML()", style="font-size: 16px; color: white; background-color: black;">Start</button>
