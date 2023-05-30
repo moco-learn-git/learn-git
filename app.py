@@ -43,7 +43,6 @@ def login():
 @app.route('/authorize')
 def auth():
     token = oauth.github.authorize_access_token()
-    print(token)
     bearer = token['access_token']
     headers = {"Authorization": "Bearer {}".format(bearer)}
     data = requests.get('https://api.github.com/user', headers=headers).json()
