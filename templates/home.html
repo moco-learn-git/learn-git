@@ -12,6 +12,7 @@
         {% if user %}
         <pre>
             {{ user|tojson }}
+            {{ repo_name|tojson }}
             <a href="/logout">logout</a>
         </pre>
         {% endif %}

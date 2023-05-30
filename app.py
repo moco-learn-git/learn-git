@@ -47,6 +47,7 @@ def auth():
     headers = {"Authorization": "Bearer {}".format(bearer)}
     data = requests.get('https://api.github.com/user', headers=headers).json()
     session['user'] = data['login']
+    session['repo_name'] = 'foo'
     return redirect('/')
 
 
@@ -59,7 +60,8 @@ def logout():
 @app.route('/home')
 def home():
     user = session.get('user')
-    return render_template('home.html', user=user)
+    repo_name = session.get('repo_name')
+    return render_template('home.html', user=user, repo_name=repo_name)
 
 
 @app.route('/step1')
