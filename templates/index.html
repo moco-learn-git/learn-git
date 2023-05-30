@@ -13,7 +13,18 @@
             Welcome to the Learn-Git Webpage!
         </p>
         <p>
+
+        {% if user %}
+        <pre>
+            {{ user|tojson }}
             <a href="home">Github Conflict Tutorial</a>
+        </pre>
+        <a href="/logout">logout</a>
+        {% else %}
+            <a href="/login">login</a>
+        {% endif %}
         </p>
     </body>
 </html>
+
+

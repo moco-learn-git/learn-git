@@ -1,7 +1,8 @@
 flask
 gunicorn
-Flask-OAuthlib
 python-dotenv
 wonderwords
 PyGithub
 GitPython
+authlib
+requests
