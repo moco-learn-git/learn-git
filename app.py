@@ -4,6 +4,7 @@ from authlib.integrations.flask_client import OAuth
 import requests
 import dotenv
 import os
+import create_repo
 
 
 dotenv.load_dotenv()
@@ -47,7 +48,7 @@ def auth():
     headers = {"Authorization": "Bearer {}".format(bearer)}
     data = requests.get('https://api.github.com/user', headers=headers).json()
     session['user'] = data['login']
-    session['repo_name'] = 'foo'
+    session['repo_name'] = create_repo.create_repo()['body']['repo_name']
     return redirect('/')
 
 
