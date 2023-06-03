@@ -44,6 +44,5 @@ def create_repo():
 
     return {
         'statusCode': 200,
-        'body': json.dumps({'repo_name': repo.name,
-                            'repo_url': 'https://github.com/moco-learn-git/{}.git'.format(repo_name)}),
+        'body': {'repo_name': repo.name, 'repo_url': 'https://github.com/moco-learn-git/{}.git'.format(repo_name)}
     }
