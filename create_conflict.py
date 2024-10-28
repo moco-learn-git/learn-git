@@ -1,32 +1,22 @@
-import json
+import git
 from github import Github
 from git import Actor
-import wonderwords
+import os
 import tempfile
 import shutil
-import git
-import os
 from dotenv import load_dotenv
 
-def create_repo():
+def create_conflict(repo_name):
     load_dotenv()
     token = os.getenv('smithj09_github_token')
     g = Github(token)
-
-    r = wonderwords.RandomWord()
-    noun = r.word(include_parts_of_speech=['noun'])
-    adjective = r.word(include_parts_of_speech=['adjective'])
-    repo_name = adjective + '-' + noun
-
-    org = g.get_organization('moco-learn-git')
-    repo = org.create_repo(repo_name, 'Practice the Github Workflow')
 
     t = tempfile.TemporaryDirectory()
     repo_dir = os.path.join(t.name, repo_name)
     origin_url = 'https://github.com/moco-learn-git/{}.git'.format(repo_name)
     r = git.Repo.clone_from(origin_url, repo_dir)
 
-    src = 'README_start_version.md'
+    src = 'README_conflict_version.md'
     dst = os.path.join(repo_dir, "README.md")
     shutil.copy(src, dst)
 
@@ -42,7 +32,4 @@ def create_repo():
     index.commit('Change to an enumerated list', author=author, committer=author)
     r.remote('origin').push()
 
-    return {
-        'statusCode': 200,
-        'body': {'repo_name': repo.name, 'repo_url': 'https://github.com/moco-learn-git/{}.git'.format(repo_name)}
-    }
+    return {'statusCode': 200}
